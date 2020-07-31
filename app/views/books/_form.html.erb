@@ -1,0 +1,14 @@
+<%= form_for [@author, @book] do |f| %>
+  <%= f.label :title %><br>
+  <%= f.text_field :title %><br>
+  <%= f.label :genre %><br>
+  <%= f.text_field :genre %><br>
+  <%= f.label :year_published %><br>
+  <%= f.date_field :year_published %><br>
+  <% if @edit %>
+  <%= f.label :author %><br>
+  <%= f.collection_select :author_id, Author.all, :id, :name %><br>
+  <% end %><br>
+  <%# f.hidden_field :author_id, value: @author.id %>
+  <%= f.submit %>
+<% end %>
